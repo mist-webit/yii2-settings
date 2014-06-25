@@ -14,6 +14,7 @@ use pheme\settings\models\SettingSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * SettingsController implements the CRUD actions for Setting model.
@@ -33,6 +34,23 @@ class DefaultController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['post'],
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'ruleConfig' => [
+                    'class' => 'app\components\AccessRule',
+                ],
+                'only' => ['index','view','delete','create','update'],
+                'rules' => [
+                    [
+                        'actions' => ['index','view','delete','create','update'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                        'matchCallback' => function ($rule, $action) {
+                        return in_array(\Yii::$app->user->identity->username, Yii::$app->getModule('user')->admins);
+                    }
+                    ],
                 ],
             ],
         ];

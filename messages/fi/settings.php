@@ -21,7 +21,7 @@ return [
     'Are you sure you want to delete this item?' => 'Halautko varmasti poistaa tämän?',
     'Change at your own risk' => 'Muuta omalla riskillä',
     'Create' => 'Luo',
-    'Create {modelClass}' => 'Luo {modelClass}',
+    'Create {modelClass}' => 'Luo asetus',
     'Created' => 'Luotu',
     'Delete' => 'Poista',
     'ID' => 'Id',
@@ -33,6 +33,6 @@ return [
     'Settings' => 'Asetukset',
     'Type' => 'Tyyppi',
     'Update' => 'Päivitä',
-    'Update {modelClass}: ' => 'Päivitä {modelClass}: ',
+    'Update {modelClass}: ' => 'Päivitä asetus: ',
     'Value' => 'Arvo',
 ];

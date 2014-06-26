@@ -61,7 +61,7 @@ class Settings extends Component
     {
         parent::init();
 
-        $this->model = new $this->modelClass;
+        $this->model = new $this->modelClass(['active' => 1]);
 
         if (is_string($this->cache)) {
             $this->cache = Yii::$app->get($this->cache, false);

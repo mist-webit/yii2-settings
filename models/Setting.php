@@ -104,8 +104,8 @@ class Setting extends ActiveRecord implements SettingInterface
     {
         $model = static::findOne(['section' => $section, 'key' => $key]);
 
-        if ($model === false) {
-            $model = new static();
+        if ($model === null) {
+            $model = new static(['active' => 1]);
         }
         $model->section = $section;
         $model->key = $key;
